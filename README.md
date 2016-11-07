@@ -23,7 +23,7 @@ import javax.xml.soap.*;
 ##Timbrar CFDI
 Para hacer una petición de timbrado de un CFDI, deberá enviar las credenciales asignadas, asi como el xml que desea timbrar convertido a una cadena en base64:
 
-En el proyecto existe una Clase Timbrado.java, la cual facilita la creacion de timbrado, solo es necesario agragarla al proyecto y crear un objeto.
+En el proyecto existe una clase Timbrado.java, la cual facilita la creacion de timbrado, solo es necesario agragarla al proyecto y crear un objeto.
 ```
 //Timbrar Factura
 // Parametros para el servicio
@@ -32,9 +32,9 @@ String contrasenaTimbrado = "contrasena_prueba";
 String documentoTimbrado = "xml";
 
 try {
-    // Creacion del objeto Timbrado
+    // Creación del objeto Timbrado
     Timbrado timbrado = new Timbrado(usuarioTimbrado, contrasenaTimbrado, documentoTimbrado);
-    //Ejecucion del servicio
+    //Ejecución del servicio
     SOAPMessage soapResponse = timbrado.Timbrar();
     // Imprime la respuesta
     System.out.print("Response SOAP Message:");
@@ -47,7 +47,7 @@ try {
 ##Cancelar CFDI
 Para la cancelación son necesarias las credenciales asignadas, RFC del emisor, un arreglo de UUIDs, el archivo PFX convertido a cadena en base64 y el password del archivo PFX:
 
-En el proyecto existe una Clase Timbrado.java, la cual facilita la creacion de timbrado, solo es necesario agragarla al proyecto y crear un objeto.
+En el proyecto existe una clase Cancelacion.java, la cual facilita la creacion de timbrado, solo es necesario agragarla al proyecto y crear un objeto.
 ```
 //Cancelar Factura
 // Parametros para el servicio
@@ -57,14 +57,14 @@ String rfcEmisorCancelacion = "RFCPRUEBA";
 String[] uuidsCancelacion = { "UUID1", "UUID2", "UUID3" };
 String pfxCancelacion = "valor_PFX";
 String pfxContrasenaCancelacion = "contrasena_prueba";
-// Conversion del PFX a base64
+// Conversión del PFX a base64
 byte[] bytes = pfxCancelacion.getBytes(StandardCharsets.UTF_8);
 String encodedPfxCancelacion  = Base64.getEncoder().encodeToString(bytes);
 
 try {
-    // Creacion del objeto Cancelacion
+    // Creación del objeto Cancelación
     Cancelacion timbrado = new Cancelacion(usuarioCancelacion, contrasenaCancelacion, rfcEmisorCancelacion, uuidsCancelacion, encodedPfxCancelacion, pfxContrasenaCancelacion);
-    //Ejecucion del servicio
+    //Ejecución del servicio
     SOAPMessage soapResponse = timbrado.Cancelar();
     // Imprime la respuesta
     System.out.print("Response SOAP Message:");
