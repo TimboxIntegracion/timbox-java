@@ -1,6 +1,7 @@
 package com.timbox;
 
 import javax.xml.soap.*;
+import java.io.ByteArrayOutputStream;
 
 public class Cancelacion {
     // URL del servicio
@@ -20,8 +21,9 @@ public class Cancelacion {
         pfxContrasena = pfxContrasenaValue;
     }
 
-    public SOAPMessage Cancelar() throws Exception {
+    public String Cancelar() throws Exception {
         // Conexion SOAP
+        String response = "";
         SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
         MessageFactory messageFactory = MessageFactory.newInstance();
@@ -29,13 +31,16 @@ public class Cancelacion {
         try {
             // Ejecucion del metodo para cancelar_cfdi
             soapResponse = soapConnection.call(peticionCancelacion(), URL);
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            soapResponse.writeTo(outputStream);
+            response = new String(outputStream.toByteArray());
         } catch (Exception ex) {
             throw ex;
         } finally {
             soapConnection.close();
         }
 
-        return soapResponse;
+        return response;
     }
 
     private SOAPMessage peticionCancelacion() throws Exception {
@@ -69,7 +74,7 @@ public class Cancelacion {
         uuidsElement.setAttribute("xsi:type", "urn:uuid");
         // Creacion de uuids con string array
         for (String uuid: uuids) {
-            SOAPElement uuidElement = uuidsElement.addChildElement("uuids");
+            SOAPElement uuidElement = uuidsElement.addChildElement("uuid");
             uuidElement.addTextNode(uuid);
             uuidElement.setAttribute("xsi:type", "urn:string");
         }

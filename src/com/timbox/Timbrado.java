@@ -1,8 +1,7 @@
 package com.timbox;
 
 import javax.xml.soap.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
+import java.io.*;
 
 public class Timbrado {
     // URL del servicio
@@ -15,14 +14,12 @@ public class Timbrado {
     public Timbrado(String usuarioValue, String contrasenaValue, String documentoValue) {
         usuario = usuarioValue;
         contrasena = contrasenaValue;
-        // Conversion del documento XML a base64
-        byte[] bytes = documentoValue.getBytes(StandardCharsets.UTF_8);
-        String encodedString = Base64.getEncoder().encodeToString(bytes);
-        sxml = encodedString;
+        sxml = documentoValue;
     }
 
-    public SOAPMessage Timbrar() throws Exception {
+    public String Timbrar() throws Exception {
         // Conexion SOAP
+        String response = "";
         SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
         MessageFactory messageFactory = MessageFactory.newInstance();
@@ -30,13 +27,16 @@ public class Timbrado {
         try {
             // Ejecucion del metodo para timbrar_cfdi
             soapResponse = soapConnection.call(peticionTimbrado(), URL);
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            soapResponse.writeTo(outputStream);
+            response = new String(outputStream.toByteArray());
         } catch (Exception ex) {
             throw ex;
         } finally {
             soapConnection.close();
         }
 
-        return soapResponse;
+        return response;
     }
 
     private SOAPMessage peticionTimbrado() throws Exception {
