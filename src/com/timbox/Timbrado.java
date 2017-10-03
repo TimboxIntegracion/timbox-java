@@ -5,7 +5,7 @@ import java.io.*;
 
 public class Timbrado {
     // URL del servicio
-    static String URL = "https://staging.ws.timbox.com.mx/timbrado/action";
+    static String URL = "https://staging.ws.timbox.com.mx/timbrado_cfdi33/wsdl";
     // Accion para el timbrado
     final static String ACCION = "timbrar_cfdi";
     // Propiedades
