@@ -5,7 +5,7 @@ import java.io.ByteArrayOutputStream;
 
 public class Cancelacion {
     // URL del servicio
-    static String URL = "https://staging.ws.timbox.com.mx/timbrado_cfdi33/wsdl";
+    static String URL = "https://staging.ws.timbox.com.mx/timbrado_cfdi33/action";
     // Accion para el timbrado
     final static String ACCION = "cancelar_cfdi";
     // Propiedades
