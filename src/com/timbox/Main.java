@@ -21,9 +21,9 @@ public class Main {
 
         try {
             // Creacion del objeto Timbrado
-            Timbrado timbrado = new Timbrado(usuario, contrasena, xmlBase64);
+            Timbrado tim = new Timbrado(usuario, contrasena, xmlBase64);
             //Ejecucion del servicio
-            String facturaTimbrada = timbrado.Timbrar();
+            String facturaTimbrada = tim.Timbrar();
             // Imprime la respuesta
             System.out.println("Comprobante timbrado: \n");
             System.out.print(facturaTimbrada);
@@ -42,9 +42,9 @@ public class Main {
 
         try {
             // Creacion del objeto Cancelacion
-            Cancelacion timbrado = new Cancelacion(usuario, contrasena, rfcEmisorCancelacion, uuidsCancelacion, pfxBase64, pfxContrasena);
+            Cancelacion cancelacion = new Cancelacion(usuario, contrasena, rfcEmisorCancelacion, uuidsCancelacion, pfxBase64, pfxContrasena);
             //Ejecucion del servicio
-            String facturaCancelada = timbrado.Cancelar();
+            String facturaCancelada = cancelacion.Cancelar();
             // Imprime la respuesta
             System.out.println("Comprabantes cancelados: \n");
             System.out.println(facturaCancelada);
