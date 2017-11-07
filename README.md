@@ -14,11 +14,22 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 ```
 
-También se requiere importar la libreria:
+También se requiere importar las librerias:
 
 ```
 import javax.xml.soap.*;
+import org.jdom2.*;
 ```
+
+El jar de jdom viene incluido en el repositorio y se utiliza para buscar y 'parsear' el XML y actualizar los atributos de Fecha y Sello antes de timbrar.
+
+
+### Generacion de Sello
+Para generar el sello se necesita: la llave privada (*.key) y el certificado (*.cer) en formato PEM. También es necesario incluir el XSLT del SAT para obtener transformar el XML a la cadena original. 
+
+De la cadena original se obtiene el digest y luego se utiliza el digest y la llave privada para obtener el sello. Todo esto se realiza con comandos de OpenSSL.
+
+Finalmente el sello es actualizado en el archivo XML para que pueda ser timbrado.
 
 ## Timbrar CFDI
 

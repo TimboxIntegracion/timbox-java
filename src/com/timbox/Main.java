@@ -26,8 +26,10 @@ public class Main {
         // Timbrar Factura
         //
         // Parametros para el servicio
-        sellarXml("archivoXml.xml");
-        byte[] archivoXml = Files.readAllBytes(Paths.get("archivoXml.xml"));
+        
+        //Actualizar sello en XML antes de mandar
+        sellarXml("ejemplo_cfdi_33.xml");
+        byte[] archivoXml = Files.readAllBytes(Paths.get("ejemplo_cfdi_33.xml"));
         String xmlBase64 = Base64.getEncoder().encodeToString(archivoXml);
 
         try {
@@ -68,7 +70,8 @@ public class Main {
         File inputFile = new File(xmlFile);
         SAXBuilder saxBuilder = new SAXBuilder();
         Document document = saxBuilder.build(inputFile);
-        //Obtener la fecha de ahorita y remplazarla en el atributo fecha
+        
+        //Obtener la fecha actual y remplazarla en el atributo fecha
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(Calendar.getInstance().getTime());
         timeStamp = timeStamp.replace('_','T');        
         document.getRootElement().setAttribute("Fecha", timeStamp);
@@ -96,6 +99,7 @@ public class Main {
         cmdArray = cmd.split(" ");
         p=r.exec(cmd);
         
+        //Actualizar sello en el comprobante(xml)
         inputFile = new File(xmlFile);
         document = saxBuilder.build(inputFile);
         String sello = new Scanner(new File("sello.txt")).useDelimiter("\\Z").next();
