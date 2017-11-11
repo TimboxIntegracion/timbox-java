@@ -14,25 +14,27 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 ```
 
-También se requiere importar las librerias:
+También se requiere importar las libreríaas:
 
 ```
 import javax.xml.soap.*;
 import org.jdom2.*;
 ```
 
-El jar de jdom viene incluido en el repositorio y se utiliza para buscar y 'parsear' el XML y actualizar los atributos de Fecha y Sello antes de timbrar.
-
-
-### Generacion de Sello
-Para generar el sello se necesita: la llave privada (*.key) y el certificado (*.cer) en formato PEM. También es necesario incluir el XSLT del SAT para obtener transformar el XML a la cadena original. 
-
-De la cadena original se obtiene el digest y luego se utiliza el digest y la llave privada para obtener el sello. Todo esto se realiza con comandos de OpenSSL.
-
-Finalmente el sello es actualizado en el archivo XML para que pueda ser timbrado.
+El jar de jdom viene incluido en el repositorio y se utiliza para buscar información en el XML y actualizar los atributos de Fecha y Sello antes de timbrar.
 
 ## Timbrar CFDI
+### Generacion de Sello
+Para generar el sello se necesita: la llave privada (.key) en formato PEM. También es necesario incluir el XSLT del SAT para poder transformar el XML y obtener la cadena original.
 
+La cadena original se utiliza para obtener el digest, usando comandos de OpenSSL, luego se utiliza el digest y la llave privada para obtener el sello.
+
+Una vez generado el sello, se actualiza en el XML para que este sea codificado y enviado al servicio de timbrado.
+Esto se logra mandando llamar el método de generar_sello:
+```
+generar_sello("ejemplo_cfdi_33.xml");
+```
+### Timbrado
 Para hacer una petición de timbrado de un CFDI, deberá enviar las credenciales asignadas, asi como el xml que desea timbrar convertido a una cadena en base64:
 
 En el proyecto existe una clase Timbrado.java, la cual facilita la creacion de timbrado, solo es necesario agragarla al proyecto y crear un objeto.
@@ -45,6 +47,9 @@ String contrasena = "h6584D56fVdBbSmmnB";
 // Timbrar Factura
 //
 // Parametros para el servicio
+
+//Actualizar sello en XML antes de mandar
+generar_sello("ejemplo_cfdi_33.xml");
 byte[] archivoXml = Files.readAllBytes(Paths.get("archivoXml.xml"));
 String xmlBase64 = Base64.getEncoder().encodeToString(archivoXml);
 

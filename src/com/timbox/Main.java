@@ -28,7 +28,7 @@ public class Main {
         // Parametros para el servicio
         
         //Actualizar sello en XML antes de mandar
-        sellarXml("ejemplo_cfdi_33.xml");
+        generar_sello("ejemplo_cfdi_33.xml");
         byte[] archivoXml = Files.readAllBytes(Paths.get("ejemplo_cfdi_33.xml"));
         String xmlBase64 = Base64.getEncoder().encodeToString(archivoXml);
 
@@ -66,7 +66,7 @@ public class Main {
         }
     }
     
-    public static void sellarXml(String xmlFile) throws Exception{
+    public static void generar_sello(String xmlFile) throws Exception{
         File inputFile = new File(xmlFile);
         SAXBuilder saxBuilder = new SAXBuilder();
         Document document = saxBuilder.build(inputFile);
