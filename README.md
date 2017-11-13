@@ -14,30 +14,30 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 ```
 
-También se requiere importar las libreríaas:
+También se requiere importar las librerías:
 
 ```
 import javax.xml.soap.*;
 import org.jdom2.*;
 ```
 
-El jar de jdom viene incluido en el repositorio y se utiliza para buscar información en el XML y actualizar los atributos de Fecha y Sello antes de timbrar.
+El jar de jdom viene incluido en el repositorio y se utiliza para actualizar los atributos de Fecha y Sello antes de timbrar.
 
 ## Timbrar CFDI
 ### Generacion de Sello
-Para generar el sello se necesita: la llave privada (.key) en formato PEM. También es necesario incluir el XSLT del SAT para poder transformar el XML y obtener la cadena original.
+Para generar el sello se necesita: la llave privada (.key) en formato PEM y el XSLT del SAT (cadenaoriginal_3_3.xslt).El XSLT del SAT se utiliza para poder transformar el XML y obtener la cadena original.
 
 La cadena original se utiliza para obtener el digest, usando comandos de OpenSSL, luego se utiliza el digest y la llave privada para obtener el sello.
 
 Una vez generado el sello, se actualiza en el XML para que este sea codificado y enviado al servicio de timbrado.
-Esto se logra mandando llamar el método de generar_sello:
+Esto se logra mandando a llamar el método de generar_sello:
 ```
 generar_sello("ejemplo_cfdi_33.xml");
 ```
 ### Timbrado
 Para hacer una petición de timbrado de un CFDI, deberá enviar las credenciales asignadas, asi como el xml que desea timbrar convertido a una cadena en base64:
 
-En el proyecto existe una clase Timbrado.java, la cual facilita la creacion de timbrado, solo es necesario agragarla al proyecto y crear un objeto.
+En el proyecto existe una clase Timbrado.java, la cual facilita la creacion de timbrado, solo es necesario agregarla al proyecto y crear un objeto.
 ```
 // Parametros generales para el sevicio
 String usuario = "AAA010101000";
@@ -70,7 +70,7 @@ try {
 
 Para la cancelación son necesarias las credenciales asignadas, RFC del emisor, un arreglo de UUIDs, el archivo PFX convertido a cadena en base64 y el password del archivo PFX:
 
-En el proyecto existe una clase Cancelacion.java, la cual facilita la cancelacion de un CFDI, solo es necesario agragarla al proyecto y crear un objeto.
+En el proyecto existe una clase Cancelacion.java, la cual facilita la cancelacion de un CFDI, solo es necesario agregarla al proyecto y crear un objeto.
 ```
 // Parametros generales para el sevicio
 String usuario = "AAA010101000";
