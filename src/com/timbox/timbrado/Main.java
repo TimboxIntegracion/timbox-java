@@ -7,6 +7,7 @@ import java.util.Base64;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.io.*;
+import java.text.DateFormat;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import org.jdom2.*;
@@ -40,15 +41,36 @@ public class Main {
             throw exception;
         }
     }
+    
+    public static String searchCsvLine(int searchColumnIndex, String searchString) throws IOException {
+        String resultRow = null;
+        BufferedReader br = new BufferedReader(new FileReader("cat_postal_code.csv"));
+        String line;
+        while ( (line = br.readLine()) != null ) {
+            String[] values = line.split(",");
+            if(values[searchColumnIndex].equals(searchString)) {
+                resultRow = line;
+                break;
+            }
+        }
+        br.close();
+        return resultRow;
+    }
 
     public static void generar_sello(String xmlFile) throws Exception {
         File inputFile = new File(xmlFile);
         SAXBuilder saxBuilder = new SAXBuilder();
         Document document = saxBuilder.build(inputFile);
-
+        String lugarExpedicion = document.getRootElement().getAttributeValue("LugarExpedicion");
+        String postalCode = searchCsvLine(1, lugarExpedicion);
+        Calendar calendar = new GregorianCalendar();
+        TimeZone tz = TimeZone.getTimeZone(postalCode.split(",")[6]);
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        //Obtener zona horaria de Lugar Expedicion
+        formatter.setTimeZone(TimeZone.getTimeZone(tz.getID()));
         //Obtener la fecha actual y remplazarla en el atributo fecha
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(Calendar.getInstance().getTime());
-        timeStamp = timeStamp.replace('_', 'T');
+        String dateNow = formatter.format(calendar.getTime());
+        String timeStamp = dateNow.replace('_', 'T');
         document.getRootElement().setAttribute("Fecha", timeStamp);
         XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
         xmlOutputter.output(document, new FileOutputStream(xmlFile));
