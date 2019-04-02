@@ -263,3 +263,34 @@ try {
    throw exception;
 }
 ```
+
+## Validar CFDI's
+Para la validación de CFDI solo es necesario generar la petición de validar_cfdi,
+En el proyecto existe una clase Validacion.java, la cual facilita la validación de un CFDI, solo es necesario agregarla al proyecto y crear un objeto.
+```
+// Parametros generales para el sevicio
+String usuario = "AAA010101000";
+String contrasena = "h6584D56fVdBbSmmnB";
+
+// Validar CFDI
+// Parametros para el servicio
+byte[] archivoXml = Files.readAllBytes(Paths.get("ejemplo_cfdi_33.xml"));
+String xmlBase64 = Base64.getEncoder().encodeToString(archivoXml);
+
+//Agregar N Comprobantes a validar
+List<Comprobante> xmls = new ArrayList<Comprobante>();
+xmls.add(new Comprobante(xmlBase64,"1"));
+xmls.add(new Comprobante(xmlBase64,"2"));
+
+try {
+   // Creacion del objeto Validacion
+   Validacion validacion = new Validacion(usuario, contrasena, xmls);
+   // Ejecucion del servicio
+   String xmlValidados = validacion.Validar();
+   // Imprime la respuesta
+   System.out.println("Comprabantes Validados: \n");
+   System.out.println(xmlValidados);
+} catch (Exception exception) {
+    throw exception;
+}
+```
