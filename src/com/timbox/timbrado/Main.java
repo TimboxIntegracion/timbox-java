@@ -41,7 +41,7 @@ public class Main {
             throw exception;
         }
     }
-    
+
     public static String searchCsvLine(int searchColumnIndex, String searchString) throws IOException {
         String resultRow = null;
         BufferedReader br = new BufferedReader(new FileReader("cat_postal_code.csv"));
@@ -91,10 +91,12 @@ public class Main {
         Runtime r = Runtime.getRuntime();
         p = r.exec(cmd);
 
+        p.waitFor();
         //Generar Sello
         cmd = "openssl enc -in digest.txt -out sello.txt -base64 -A -K CSD01_AAA010101AAA.key.pem";
         cmdArray = cmd.split(" ");
         p = r.exec(cmd);
+        p.waitFor();
 
         //Actualizar sello en el comprobante(xml)
         inputFile = new File(xmlFile);
