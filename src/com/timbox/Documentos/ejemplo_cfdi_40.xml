@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Version="4.0" Serie="VG" Folio="11814" Fecha="2022-05-30T11:58:16" FormaPago="01" NoCertificado="30001000000400002438" SubTotal="2572.95" Moneda="MXN" TipoCambio="1" Total="2725.59" TipoDeComprobante="I" Exportacion="01" MetodoPago="PUE" LugarExpedicion="52080" Sello="ZLT7Y591WNw7f0hpWXDc1rAxs3K8K7QWh+yhnD1IUMkJegBhVBTBVJHDApLcFkNHj4e9XPu4YdNCvgPskSmY/MI8oueE9+Q3HbkbOwSAGe/SoHwcOQP/O4asuLel07yE3yo8KiZyqfpc0gGb4xCS3E3YGoAZcuOuz/2PUevr4iagI3lwy0qRnCQC7oFJa5kkeVJpZxsY/sPTCb6iCeGTyZr+Y/DoUQAtbndPsNWtAitjZr04HGkCxEPr793oz3ekGhw0qhk6Uao70814u4/dwH2z/GhfCksYW8iDayHF9m9ZZY35wHEanivm1vTKFCXoacG4uJKepmN2kvvC4KrvOw==" Certificado="MIIF0jCCA7qgAwIBAgIUMzAwMDEwMDAwMDA0MDAwMDI0MzgwDQYJKoZIhvcNAQELBQAwggErMQ8wDQYDVQQDDAZBQyBVQVQxLjAsBgNVBAoMJVNFUlZJQ0lPIERFIEFETUlOSVNUUkFDSU9OIFRSSUJVVEFSSUExGjAYBgNVBAsMEVNBVC1JRVMgQXV0aG9yaXR5MSgwJgYJKoZIhvcNAQkBFhlvc2Nhci5tYXJ0aW5lekBzYXQuZ29iLm14MR0wGwYDVQQJDBQzcmEgY2VycmFkYSBkZSBjYWRpejEOMAwGA1UEEQwFMDYzNzAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBDSVVEQUQgREUgTUVYSUNPMREwDwYDVQQHDAhDT1lPQUNBTjERMA8GA1UELRMIMi41LjQuNDUxJTAjBgkqhkiG9w0BCQITFnJlc3BvbnNhYmxlOiBBQ0RNQS1TQVQwHhcNMTkwNjE3MjAwNDEyWhcNMjMwNjE3MjAwNDEyWjCB+TEpMCcGA1UEAxMgSU5OT1ZBQ0lPTiBWQUxPUiBZIERFU0FSUk9MTE8gU0ExKTAnBgNVBCkTIElOTk9WQUNJT04gVkFMT1IgWSBERVNBUlJPTExPIFNBMSkwJwYDVQQKEyBJTk5PVkFDSU9OIFZBTE9SIFkgREVTQVJST0xMTyBTQTElMCMGA1UELRMcSVZEOTIwODEwR1UyIC8gS0FITzY0MTEwMUIzOTEeMBwGA1UEBRMVIC8gS0FITzY0MTEwMUhOVExLUzA2MS8wLQYDVQQLFCZJTk5PVkFDSdNOIFZBTE9SIFkgREVTQVJST0xMTyBTQSBERSBDVjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIKn3U4zMIEGfAICsDCSD4EQwQbabWJOdQpXdnAeCqwIH/vAbnv4t7Rc1NFMJg2OeCK5L6g+Pj/DlWftOeqRo8KIzW04xtq6rWSxXXuhGDm9hdRF15JEoxJnpDmkqKLEpbLJqZ4mOdKOHdmEdQ4O3dd0njeNGdjhU5+Vl4J9rHVjA4BoJpsP75BQeIwDdFIVxcb60sKna0mG58lMq5tNK6CtozeyrC94IED9GARG0gKuXlswTrWrI1N3/VOI7jjZY6YeIeO5jcbXrCiqGxGduJrGHqyrxGPTIXlZ7iW8zMT1G8QRF5rWutg4+MysIsjrcFrexbP5TMaRBYyASeBd94kCAwEAAaMdMBswDAYDVR0TAQH/BAIwADALBgNVHQ8EBAMCBsAwDQYJKoZIhvcNAQELBQADggIBAJVqgdQ+NOSIBKbWBBSARmX5C0wiq0BfRz4Ub7dVGguHoPAB4dJAtL540b3Klid90EwtNSCCFSc9OPQ0mWVRkCz0OtceLKAXzKqzVOcXrxmydlbT0brNBkULDV54Gdup1B42mmCh0hoRaNvr0QkJnKEMTmHt3m47xnV9XfOeUcSDciCTMV4wRns3JdCr7g0PMyWpV5yRLJNr8w9YCm6YesSqCJLZIvWbFGRuDhHfgsyImtMuTNbclbI7XFue2B4awi3a9H8yfgf33bGgeLhVCAbILd63LQv67zGdt3H8s2Xe4umQmh+9gyJG4fmbZmUd3wFl/fY9kmdTxZfufqPbdyV/G7g0Hq3mmzS1TuRG2Hj+y4lVzLOV6RXJjIQ+Qp+5ePKl4d/oeAIsTzmWsZc0c+yJ1MMbCn6CHTlNvdwROOhpanNjEHJ2kLwh5nhoVSRbRF/owuBreO5FbJKZE+L+8mzYEIhKUiD03WW03BOPCCQFFvBFC0AoN7wS0zFm1g2gNV95pgZwp1LsqlwBSAVF9SS/MKiE7Mv0UryWEBYllo66XY8VMFzZYAjSuEudoK3xSsCdjaA/Wjx85/3RCEV3J7LO5m6mwYgrQIaTwuYWuCTUE8XKxj7cjNo1UF6LbL77nzbYmS3sUXE4Jly8xxOYsyDX8B+8TNW++g1mB3bt+OHv">
+  <cfdi:Emisor Rfc="IVD920810GU2" Nombre="INNOVACION VALOR Y DESARROLLO SA" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="XAXX010101000" Nombre="PUBLICO EN GENERAL" DomicilioFiscalReceptor="52080" RegimenFiscalReceptor="616" UsoCFDI="S01"/>
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="10191509" NoIdentificacion="PU03180194" Cantidad="12.000000" ClaveUnidad="KGM" Descripcion="PRESTO 5 KILO (PRODUCTOS SANIDAD URBANA)" ValorUnitario="159.0000" Importe="1908.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1908.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.080000" Importe="152.64"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="10191509" NoIdentificacion="FM03130005" Cantidad="1.000000" ClaveUnidad="H87" Descripcion="QUICK FUME 500 PASTILLAS (FUMIGANTE)" ValorUnitario="664.9500" Importe="664.95" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="664.95" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00"/>
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="152.64">
+    <cfdi:Traslados>
+      <cfdi:Traslado Base="1908.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.080000" Importe="152.64"/>
+      <cfdi:Traslado Base="664.95" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+</cfdi:Comprobante>
