@@ -3,11 +3,6 @@ Ejemplo con la integración al Webservice de Timbox
 
 Se deberá hacer uso de las URL que hacen referencia al WSDL, en cada petición realizada:
 
-Webservice de Timbrado 3.3:
-- [Timbox Pruebas](https://staging.ws.timbox.com.mx/timbrado_cfdi33/action)
-
-- [Timbox Producción](https://sistema.timbox.com.mx/timbrado_cfdi33/action)
-
 Webservice de Timbrado 4.0 :
 - [Timbox Pruebas](https://staging.ws.timbox.com.mx/timbrado_cfdi40/action)
 
@@ -41,48 +36,6 @@ Se debe de crear un nuevo proyecto, copiar los directorios contenidos en src/com
   timbrado40.Timbrado40();
 ```
 
-## Timbrar CFDI
-### Generación de Sello
-Para generar el sello se necesita: la llave privada (.key) en formato PEM y el XSLT del SAT (cadenaoriginal_3_3.xslt o cadenaoriginal_4_0.xslt).El XSLT del SAT se utiliza para poder transformar el XML y obtener la cadena original.
-
-La cadena original se utiliza para obtener el digest, usando comandos de OpenSSL, luego se utiliza el digest y la llave privada para obtener el sello.
-
-Una vez generado el sello, se actualiza en el XML para que este sea codificado y enviado al servicio de timbrado.
-Esto se logra mandando a llamar el método de generar_sello:
-```
-generar_sello("ejemplo_cfdi_33.xml");
-```
-### Timbrado 3.3
-Para hacer una petición de timbrado de un CFDI, deberá enviar las credenciales asignadas, asi como el xml que desea timbrar convertido a una cadena en base64:
-
-En el proyecto existe una clase Timbrado.java, la cual facilita la creacion de timbrado, solo es necesario agregarla al proyecto y crear un objeto.
-```
-// Parametros generales para el sevicio
-String usuario = "usuario";
-String contrasena = "contraseña";
-
-//
-// Timbrar Factura
-//
-// Parametros para el servicio
-
-//Actualizar sello en XML antes de mandar
-generar_sello("ejemplo_cfdi_33.xml");
-byte[] archivoXml = Files.readAllBytes(Paths.get("archivoXml.xml"));
-String xmlBase64 = Base64.getEncoder().encodeToString(archivoXml);
-
-try {
-    // Creacion del objeto Timbrado
-    Timbrado timbrado = new Timbrado(usuario, contrasena, xmlBase64);
-    //Ejecucion del servicio
-    String facturaTimbrada = timbrado.Timbrar();
-    // Imprime la respuesta
-    System.out.println("Comprobante timbrado: \n");
-    System.out.print(facturaTimbrada);
-} catch (Exception exception) {
-    throw exception;
-}
-```
 ### Timbrado 4.0
 Para hacer una petición de timbrado de un CFDI, deberá enviar las credenciales asignadas, asi como el xml que desea timbrar convertido a una cadena en base64:
 
